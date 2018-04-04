@@ -1,9 +1,32 @@
 from flask import Flask, render_template, url_for, app, flash, request, session, redirect, send_from_directory, \
     make_response
+import pymysql
+host="awsdbtest.csndrp6z6xh7.us-east-2.rds.amazonaws.com"
+port=3306
+dbname="awsfirstdb"
+user="atheer123"
+password="Deem12345"
+
+conn = pymysql.connect(host, user=user,port=port,
+                           passwd=password, db=dbname)
+cur = conn.cursor()
+
+# cur.execute("CREATE TABLE all_local_road (rdna VARCHAR(200)) ")
+# print ('done create tale')
+# cur.execute("insert into all_local_road values ('test5') ")
+# conn.commit()
+# print ('done insert')
+# cur.execute("select * from  all_local_road ")
+# print(cur.fetchall())
+
 app = Flask(__name__)
 @app.route('/')
 def hello_world():
-    return render_template('index.html')
+    cur.execute("select * from   all_local_road ")
+
+    x= cur.fetchall()
+    print x
+    return render_template('index.html',x=x)
 # print a nice greeting.
 # def say_hello(username = "World"):
 #     return '<p>Hello %s!</p>\n' % username
