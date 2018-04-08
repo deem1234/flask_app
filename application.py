@@ -59,8 +59,7 @@ def hello_world():
 # 
 # run the app.
 if __name__ == '__main__':
-    app.debug = True
-    app.run(host='0.0.0.0',port=80)
+    app.run()
 #     
 # if __name__ == "__main__":
 #     # Setting debug to True enables debug output. This line should be
