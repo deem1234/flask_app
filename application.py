@@ -3,19 +3,19 @@ from flask import Flask, render_template, url_for, app, flash, request, session,
 import pymysql
 
 app = Flask(__name__)
-app.secret_key = '\xdc\x9c\x91\x7fK\x13\xaf\x9c\x05\x86zj\xe0\xa9?\xd8\xf4\xccS\x97\x8cb,\xc5'
+# app.secret_key = '\xdc\x9c\x91\x7fK\x13\xaf\x9c\x05\x86zj\xe0\xa9?\xd8\xf4\xccS\x97\x8cb,\xc5'
 
-# host="awsdbtest.csndrp6z6xh7.us-east-2.rds.amazonaws.com"
-# port=3306
-# dbname="awsfirstdb"
-# user="atheer123"
-# password="Deem12345"
-# 
-# conn = pymysql.connect(host, user=user,port=port,
-#                            passwd=password, db=dbname)
-# cur = conn.cursor()
+host="awsfirstdb.ccglhhwleoca.us-east-2.rds.amazonaws.com"
+port=3306
+dbname="awsfirstdb"
+user="atheer123"
+password="Deem12345"
 
-# cur.execute("CREATE TABLE all_local_road (rdna VARCHAR(200)) ")
+conn = pymysql.connect(host, user=user,port=port,
+                           passwd=password, db=dbname)
+cur = conn.cursor()
+# print ('done connection')
+# # cur.execute("CREATE TABLE all_local_road (rdna VARCHAR(200)) ")
 # print ('done create tale')
 # cur.execute("insert into all_local_road values ('test5') ")
 # conn.commit()
@@ -26,10 +26,10 @@ app.secret_key = '\xdc\x9c\x91\x7fK\x13\xaf\x9c\x05\x86zj\xe0\xa9?\xd8\xf4\xccS\
 app = Flask(__name__)
 @app.route('/')
 def hello_world():
-#     cur.execute("select * from   all_local_road ")
-# 
-#     x= cur.fetchall()
-    x= 'hello world'
+    cur.execute("select * from   all_local_road ")
+
+    x= cur.fetchall()
+    # x= 'hello world'
     return render_template('index.html',x=x)
 # print a nice greeting.
 # def say_hello(username = "World"):
