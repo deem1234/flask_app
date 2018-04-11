@@ -28,7 +28,7 @@ app = Flask(__name__)
 def hello_world():
     cur.execute("select * from   all_local_road ")
 
-    x= cur.fetchall()
+    x='hello'# cur.fetchall()
     # x= 'hello world'
     return render_template('index.html',x=x)
 # print a nice greeting.
