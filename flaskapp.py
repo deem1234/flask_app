@@ -5,15 +5,15 @@ import pymysql
 app = Flask(__name__)
 # app.secret_key = '\xdc\x9c\x91\x7fK\x13\xaf\x9c\x05\x86zj\xe0\xa9?\xd8\xf4\xccS\x97\x8cb,\xc5'
 
-host="awsfirstdb.ccglhhwleoca.us-east-2.rds.amazonaws.com"
-port=3306
-dbname="awsfirstdb"
-user="atheer123"
-password="Deem12345"
+# host="awsfirstdb.ccglhhwleoca.us-east-2.rds.amazonaws.com"
+# port=3306
+# dbname="awsfirstdb"
+# user="atheer123"
+# password="Deem12345"
 
-conn = pymysql.connect(host, user=user,port=port,
-                           passwd=password, db=dbname)
-cur = conn.cursor()
+# conn = pymysql.connect(host, user=user,port=port,
+#                            passwd=password, db=dbname)
+# cur = conn.cursor()
 # print ('done connection')
 # # cur.execute("CREATE TABLE all_local_road (rdna VARCHAR(200)) ")
 # print ('done create tale')
@@ -26,9 +26,9 @@ cur = conn.cursor()
 app = Flask(__name__)
 @app.route('/')
 def hello_world():
-    cur.execute("select * from   all_local_road ")
+#     cur.execute("select * from   all_local_road ")
 
-    x='hello'# cur.fetchall()
+    x='hello last'# cur.fetchall()
     # x= 'hello world'
     return render_template('index.html',x=x)
 # print a nice greeting.
