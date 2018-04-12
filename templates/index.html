@@ -4,7 +4,23 @@
 	<link href="{{ url_for('static', filename="css/style.css") }}" rel="stylesheet">
 </head>
 <body>
-<h1>hi</h1>
-{{ x }}
+<h1>Tariq Alsahfi - 100114608</h1>
+<h1>Question8</h1>
+     <form method=POST action="{{ url_for('query1') }}">
+         <h2>  </h2>
+     <label for="test"></label>
+           <input type="text"   name="user_name" placeholder="user_name number">
+
+{#      <input type="text"   name="name" placeholder="name">#}
+{#        <input type="text"   name="To1" placeholder="To1">#}
+{#        <input type="text"    name="From2" placeholder="From2">#}
+{#         <input type="text"   name="To2" placeholder="To">#}
+     <button type="submit" onClick="this.form.submit(); this.disabled=flase" class="btn btn-primary btn-block">submit</button>
+            </form>
+
+
+
+
 </body>
 </html>
+
