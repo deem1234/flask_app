@@ -25,7 +25,9 @@ def hello_world():
 def query1():
     cur.execute("SELECT * FROM awsfirstdb.classes")
     x = cur.fetchall()
-    print x
-    return render_template('query1.html')  # ,x=x)
+    list1 =[]
+    for i in x:
+        list1.append(i)
+    return render_template('query1.html',result29=list1)  # ,x=x)
 if __name__ == '__main__':
     app.run()
