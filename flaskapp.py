@@ -23,11 +23,15 @@ def hello_world():
 
 @app.route('/query1', methods=['POST'])
 def query1():
-    cur.execute("SELECT * FROM awsfirstdb.classes")
+    day = request.form['day']
+    if day == 'M':
+        cur.execute("SELECT s1.* FROM awsfirstdb.CSEFall2018 as s1 , awsfirstdb.classes as s where  s1.M='Y'" )
+
+    # cur.execute("SELECT s1.* FROM awsfirstdb.CSEFall2018 as s1 , awsfirstdb.classes as s where  s1.M='Y'")
     x = cur.fetchall()
     list1 =[]
     for i in x:
         list1.append(i)
-    return render_template('query1.html',result29=list1)  # ,x=x)
+    return render_template('query1.html',result29=x)  # ,x=x)
 if __name__ == '__main__':
     app.run()
